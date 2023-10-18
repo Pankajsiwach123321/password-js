@@ -60,30 +60,32 @@
 
         eye.addEventListener("click", function () {
 
-            if (password.type == "password") {
+            if (password.value.length < 1) {
+                eye.src = "./assets/image/eyeclose.png";
+            }
+
+
+            else if (password.value.length > 1, password.type == "password") {
                 password.setAttribute("type", "text")
                 passwordB.setAttribute("type", "text")
                 eye.src = "./assets/image/eye-password.png";
             }
 
-            else {
+            else if (password.value.length > 1, password.type == "text") {
                 password.setAttribute("type", "password")
                 passwordB.setAttribute("type", "password")
                 eye.src = "./assets/image/eyeclose.png";
             }
 
 
-
         })
-        // submit.addEventListener("click", function () {
+        submit.addEventListener("click", function () {
 
-        //     if (first != second) {
-        //         alert("not same password")
-        //     }
-        //     else if (first == second) {
-        //         alert("welcome")
-        //     }
-        // })
+            if (password.value != passwordB.value) {
+                alert("not same pasword ")
+            }
+            else { alert("welcome") }
+        })
     </script>
 </body>
 
