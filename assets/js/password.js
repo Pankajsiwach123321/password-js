@@ -5,6 +5,9 @@ let passwordB = document.querySelector("#passwordB")
 let first = document.getElementsByName('.first')
 let second = document.getElementsByName('.second')
 let conifuresss = document.querySelector('.conifuresss')
+let hint = document.querySelector('#hint')
+let showme = document.querySelector('#showme')
+let h2 = document.querySelector('h2')
 if (password.length >= 1) {
     eye.classList.add("d-block")
     eye.classList.remove("d-none")
@@ -14,7 +17,6 @@ else {
     eye.classList.remove("d-block")
 
 }
-
 
 eye.addEventListener("click", function () {
 
@@ -39,16 +41,18 @@ eye.addEventListener("click", function () {
 })
 function myFunction_2() {
     if (passwordB.value.length < 1) {
-        conifuresss.innerHTML = ""
+        conifuresss.innerHTML = "please confirm password"
+        conifuresss.classList.remove("text-success")
+        conifuresss.classList.add("text-danger")
     }
     else if (passwordB.value.length >= 1, password.value != passwordB.value) {
-        conifuresss.innerHTML = "password is incorrect"
+        conifuresss.innerHTML = "password is not same"
         conifuresss.classList.remove("text-success")
         conifuresss.classList.add("text-danger")
     }
     else if (passwordB.value.length >= 1, password.value = passwordB.value) {
         // alert("jgjhgj")
-        conifuresss.innerHTML = "password is correct"
+        conifuresss.innerHTML = "password is same"
         conifuresss.classList.add("text-success")
         conifuresss.classList.remove("text-danger")
     }
@@ -65,3 +69,19 @@ function myFunction() {
     }
 
 }
+submit.addEventListener("click", function () {
+    if (password.value == "123456" && password.value == passwordB.value) {
+        document.body.style.background = "green"
+        h2.innerHTML = "welcome to hellow world"
+    }
+    else {
+        document.body.style.background = "unset"
+        h2.innerHTML = "password is incorrect"
+
+    }
+})
+hint.addEventListener("click", function () {
+    showme.classList.toggle("opacity-1")
+})
+
+
